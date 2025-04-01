@@ -1,3 +1,16 @@
-FROM openjdk:17
-COPY target/java-web-service-0.0.1-SNAPSHOT.jar java-web-service-0.0.1-SNAPSHOT.jar
-CMD ["java", "-jar", "java-web-service-0.0.1-SNAPSHOT.jar"]
+ARG MAVEN_VERSION=3.8.7
+FROM maven:${MAVEN_VERSION}-amazoncorretto-17 as build
+WORKDIR /app
+COPY pom.xml /app
+RUN mvn dependency:go-offline
+COPY src /app/src
+RUN mvn package -DskipTests
+
+FROM amazoncorretto:17
+WORKDIR /app
+COPY --from=build /app/target/java-web-service-0.0.1-SNAPSHOT.jar /app/jws.jar
+EXPOSE 8080
+USER nobody
+ENV SPRING_PROFILES_ACTIVE=dev
+ENTRYPOINT ["java", "-jar", "jws.jar"]
+CMD ["--server.port=8080"]
