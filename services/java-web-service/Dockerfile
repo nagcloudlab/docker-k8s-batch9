@@ -10,7 +10,7 @@ FROM amazoncorretto:17
 WORKDIR /app
 COPY --from=build /app/target/java-web-service-0.0.1-SNAPSHOT.jar /app/java-web-service-0.0.1-SNAPSHOT.jar
 EXPOSE 8080
-USER nobody
+USER root
 ENV SPRING_PROFILES_ACTIVE=dev
 ENTRYPOINT ["java", "-jar", "java-web-service-0.0.1-SNAPSHOT.jar"]
 CMD ["--server.port=8080"]
