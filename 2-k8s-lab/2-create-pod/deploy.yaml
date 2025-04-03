@@ -9,13 +9,20 @@ spec:
   selector:
     matchLabels:
       app: nginx
+    matchExpressions:
+      - key: city
+        operator: In
+        values:
+          - chennai
+          - hyderabad
   template:
     metadata:
       name: nginx-pod
       labels:
         app: nginx
-        type: front-end
+        city: chennai
+        trainer: Nag
     spec:
       containers:
-      - image: nginx:latest
-        name: nginx-container
+      - name: nginx-container 
+        image: nginx:latest

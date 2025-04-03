@@ -4,7 +4,8 @@ metadata:
   name: nginx-pod
   labels:
     app: nginx
-    type: proxy
+    city: chennai
+    trainer: Nag
 spec:
   containers:
   - name: nginx-container 

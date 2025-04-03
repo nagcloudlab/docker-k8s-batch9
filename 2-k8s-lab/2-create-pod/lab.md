@@ -38,12 +38,13 @@ kubectl get pods
 ### Lab: Get the logs of a Pod
 ```bash
 kubectl logs nginx-pod 
+kubectl logs -c nginx-container  nginx-pod
 kubectl logs nginx-pod -f
 ```
 
 ### Lab: Exec into a Pod
 ```bash
-kubectl exec -it nginx-pod -c alpine-container -- /bin/sh
+kubectl exec -it nginx-pod -c nginx-container -- /bin/sh
 ```
 
 ### Lab: Add a label to a Pod
@@ -60,11 +61,13 @@ kubectl delete -f pod.yaml
 ```
 
 
-Pod management controllers
+
+
+Pod management controllers  ( Workload Apis )
 
 1. ReplicationController ( deprecated)
 2. ReplicaSet
-3. Deployment
+3. Deployment + Replicaset
 4. StatefulSet
 5. DaemonSet
 6. Job
@@ -161,6 +164,9 @@ kubectl get pods
 kubectl delete deploy nginx-deploy
 kubectl get pods
 ```
+
+
+
 
 
 ## StatefulSet, DaemonSet, Job, CronJob

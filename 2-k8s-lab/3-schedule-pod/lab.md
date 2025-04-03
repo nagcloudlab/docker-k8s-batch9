@@ -9,7 +9,7 @@ kubectl describe pod default-scheduled-pod
 kubectl delete pod default-scheduled-pod
 ```
 
-### 8️⃣ Schedule based on Node Name
+### 8️⃣ Schedule based on Node-Name
 
 ```bash
 kubectl apply -f manual-scheduled-pod.yaml

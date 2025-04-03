@@ -24,7 +24,6 @@ kind version
 
 ### create k8s cluster
 ```bash
-kind delete cluster --name my-cluster
 kind create cluster --image kindest/node:v1.30.0 --config kind-cluster.yaml --name kind-cluster
 kind get clusters
 kubectl get nodes
@@ -70,13 +69,13 @@ kubectl api-resources
 ### create a namespace
 
 ```bash
-kubectl create namespace my-namespace
+kubectl create namespace batch9
 kubectl get namespaces
 ```
 
 ### switch to a namespace
 
 ```bash
-kubectl config set-context --current --namespace=my-namespace
+kubectl config set-context --current --namespace=batch9
 ```
 

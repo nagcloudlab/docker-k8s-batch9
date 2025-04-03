@@ -3,26 +3,26 @@ kind: ReplicaSet
 metadata:
   name: nginx-rs
   labels:
-    app: nginx
-    type: front-end
+    app: nginx-rs
 spec:
-  replicas: 
+  replicas: 2
   selector:
     matchLabels:
       app: nginx
     matchExpressions:
-      - key: type
+      - key: city
         operator: In
         values:
-          - front-end
-          - ui  
+          - chennai
+          - hyderabad
   template:
     metadata:
       name: nginx-pod
       labels:
         app: nginx
-        type: front-end
+        city: chennai
+        trainer: Nag
     spec:
       containers:
-      - image: nginx:latest
-        name: nginx-container
+      - name: nginx-container 
+        image: nginx:1.11.7
