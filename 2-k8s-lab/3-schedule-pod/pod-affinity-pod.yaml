@@ -23,7 +23,7 @@ metadata:
     app: redis
 spec:
   affinity:
-    podAntiAffinity:
+    podAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
       - labelSelector:
           matchExpressions:

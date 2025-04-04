@@ -70,8 +70,6 @@ kubectl delete -f taint-toleration-pod.yaml
 
 
 
-
-
 ### 6️⃣ Resource Requests & Limits
 
 ```bash
