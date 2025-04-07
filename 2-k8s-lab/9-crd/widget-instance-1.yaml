@@ -3,5 +3,5 @@ kind: Widget
 metadata:
   name: my-widget-1
 spec:
-  color: "yellow"
-  size: "small"
+  color: "pink"
+  size: "big"

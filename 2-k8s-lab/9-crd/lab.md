@@ -29,7 +29,7 @@ kubectl apply -f widget-controller-rbac.yaml
 kubectl delete -f widget-controller-deployment.yaml
 kubectl apply -f widget-controller-deployment.yaml
 kubectl get pods -w
-kubectl logs widget-controller-5f48f7c9fb-zqt7k
+kubectl logs widget-controller-6df7dcdcd4-brcm4
 ```
 
 

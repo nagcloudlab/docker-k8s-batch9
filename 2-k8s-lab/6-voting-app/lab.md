@@ -103,7 +103,6 @@ kubectl delete -f voting-app-v5.yaml
 ```
 
 
-
 --------------------------------------------------------------------------
 ### v6 - Loadbalancer Service ( cloud provider specific)
 --------------------------------------------------------------------------
@@ -127,7 +126,6 @@ kubectl get pods -w
 kubectl delete -f voting-app-v6.yaml
 
 ```
-
 
 
 --------------------------------------------------------------------------
@@ -280,11 +278,7 @@ kubectl delete -f voting-app-v9.yaml
 ###  Deployment Patterns ( Traffic Splitting with Istio)
 --------------------------------------------------------------------------
 
-- blue-green
-- canary ( our focus )
-- A/B testing
-- Failover action pattern
-
+<!-- Deployment -> Rolling Update -->
 
 ```bash
 kubectl apply -f voting-app-v10.yaml
@@ -297,9 +291,9 @@ kubectl get gateway
 istioctl dashboard kiali
 
 kubectl get svc -n istio-system
-for i in {1..10000}; do curl -H "Host: vote.local" http://172.18.0.5:32497; done
+for i in {1..100000}; do curl -H "Host: vote.local" http://172.18.0.5:32623; done
 
-kubectl delete -f voting-app-v12.yaml
+kubectl delete -f voting-app-v10.yaml
 ```
 
 

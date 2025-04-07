@@ -5,9 +5,9 @@ metadata:
   namespace: default
 subjects:
   - kind: ServiceAccount
-    name: app-service-account
+    name: sa1
     namespace: default
 roleRef:
   kind: Role
-  name: app-role
+  name: pod-read-role
   apiGroup: rbac.authorization.k8s.io
